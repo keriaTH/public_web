@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Measurement Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="card">
+            <h2 class="title">Control Voltage</h2>
+            <div class="form-group">
+                <label>Name Device</label>
+                <input type="text" placeholder="Enter device name">
+            </div>
+            <div class="form-group">
+                <label>Voltage1 (V)</label>
+                <input type="number" placeholder="Enter voltage 1">
+            </div>
+            <div class="form-group">
+                <label>Voltage2 (V)</label>
+                <input type="number" placeholder="Enter voltage 2">
+            </div>
+            <div class="form-group">
+                <label>Set Voltage 1(V)</label>
+                <input type="number" placeholder="Set voltage 1">
+            </div>
+            <div class="form-group">
+                <label>Set Voltage 2(V)</label>
+                <input type="number" placeholder="Set voltage 2">
+            </div>
+            <button class="btn primary">CONTROL VOLTAGE</button>
+        </div>
+
+        <div class="card">
+            <h2 class="title">EIS Measure</h2>
+            <div class="form-group">
+                <label>Start Freq (Hz)</label>
+                <input type="number" placeholder="Start frequency">
+            </div>
+            <div class="form-group">
+                <label>End Freq (Hz)</label>
+                <input type="number" placeholder="End frequency">
+            </div>
+            <div class="form-group">
+                <label>Sweep Points</label>
+                <input type="number" placeholder="Sweep points">
+            </div>
+            <div class="form-group">
+                <label>Repeat Times</label>
+                <input type="number" placeholder="Repeat times">
+            </div>
+            <div class="form-group">
+                <label>Set Name File</label>
+                <input type="text" placeholder="Set file name">
+            </div>
+            <div class="btn-group">
+                <button class="btn primary">MEASURE</button>
+                <button class="btn secondary">OPEN CHART</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="title">CV Measure</h2>
+            <div class="form-group">
+                <label>Start Voltage (mV)</label>
+                <input type="number" placeholder="Start voltage">
+            </div>
+            <div class="form-group">
+                <label>End Voltage (mV)</label>
+                <input type="number" placeholder="End voltage">
+            </div>
+            <div class="form-group">
+                <label>Step</label>
+                <input type="number" placeholder="Step value">
+            </div>
+            <div class="form-group">
+                <label>Repeat Times</label>
+                <input type="number" placeholder="Repeat times">
+            </div>
+            <div class="form-group">
+                <label>Set Name File</label>
+                <input type="text" placeholder="Set file name">
+            </div>
+            <div class="btn-group">
+                <button class="btn primary">MEASURE</button>
+                <button class="btn secondary">OPEN CHART</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

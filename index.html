@@ -1,96 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Measurement Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <title>Electrochemical Potentiostat</title>
+  <!-- Kết nối CSS hoặc Bootstrap, FontAwesome (nếu muốn) -->
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://kit.fontawesome.com/xxxxxx.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
-    <div class="container">
-        <div class="card">
-            <h2 class="title">Control Voltage</h2>
-            <div class="form-group">
-                <label>Name Device</label>
-                <input type="text" placeholder="Enter device name">
-            </div>
-            <div class="form-group">
-                <label>Voltage1 (V)</label>
-                <input type="number" placeholder=" voltage 1">
-            </div>
-            <div class="form-group">
-                <label>Voltage2 (V)</label>
-                <input type="number" placeholder=" voltage 2">
-            </div>
-            <div class="form-group">
-                <label>Set Voltage 1(V)</label>
-                <input type="number" placeholder="Set voltage 1">
-            </div>
-            <div class="form-group">
-                <label>Set Voltage 2(V)</label>
-                <input type="number" placeholder="Set voltage 2">
-            </div>
-            <button class="btn primary">CONTROL VOLTAGE</button>
-        </div>
+  <!-- Header -->
+  <header class="header">
+    <h1 class="header__title">Electrochemical Potentiostat</h1>
+  </header>
 
-        <div class="card">
-            <h2 class="title">EIS Measure</h2>
-            <div class="form-group">
-                <label>Start Freq (Hz)</label>
-                <input type="number" placeholder="Start frequency">
-            </div>
-            <div class="form-group">
-                <label>End Freq (Hz)</label>
-                <input type="number" placeholder="End frequency">
-            </div>
-            <div class="form-group">
-                <label>Sweep Points</label>
-                <input type="number" placeholder="Sweep points">
-            </div>
-            <div class="form-group">
-                <label>Repeat Times</label>
-                <input type="number" placeholder="Repeat times">
-            </div>
-            <div class="form-group">
-                <label>Set Name File</label>
-                <input type="text" placeholder="Set file name">
-            </div>
-            <div class="btn-group">
-                <button class="btn primary">MEASURE</button>
-                <button class="btn secondary">OPEN CHART</button>
-            </div>
+  <!-- Nội dung chính -->
+  <main class="main-content">
+    <!-- Cột bên trái: Tập trung các parameter, cài đặt, nút. -->
+    <aside class="control-panel">
+      
+      <!-- Khu vực Connection Port -->
+      <section class="control-block">
+        <h2 class="control-block__title">Connection Port</h2>
+        <div class="control-group">
+          <label for="port-select">Port:</label>
+          <select id="port-select" class="input-control">
+            <option>COM1</option>
+            <option>COM2</option>
+            <option>COM3</option>
+          </select>
         </div>
-
-        <div class="card">
-            <h2 class="title">CV Measure</h2>
-            <div class="form-group">
-                <label>Start Voltage (mV)</label>
-                <input type="number" placeholder="Start voltage">
-            </div>
-            <div class="form-group">
-                <label>End Voltage (mV)</label>
-                <input type="number" placeholder="End voltage">
-            </div>
-            <div class="form-group">
-                <label>Step</label>
-                <input type="number" placeholder="Step value">
-            </div>
-            <div class="form-group">
-                <label>Repeat Times</label>
-                <input type="number" placeholder="Repeat times">
-            </div>
-            <div class="form-group">
-                <label>Set Name File</label>
-                <input type="text" placeholder="Set file name">
-            </div>
-            <div class="btn-group">
-                <button class="btn primary">MEASURE</button>
-                <button class="btn secondary">OPEN CHART</button>
-            </div>
+        <div class="btn-group">
+          <button class="btn btn--primary">Connect</button>
+          <button class="btn btn--danger">Disconnect</button>
         </div>
-    </div>
+      </section>
 
-    <script src="script.js"></script>
+      <!-- Khu vực Control Voltage -->
+      <section class="control-block">
+        <h2 class="control-block__title">Control Voltage</h2>
+        <div class="control-group">
+          <label for="voltage1">Voltage 1 (mV):</label>
+          <input type="number" id="voltage1" class="input-control" value="50" />
+        </div>
+        <div class="control-group">
+          <label for="voltage2">Voltage 2 (mV):</label>
+          <input type="number" id="voltage2" class="input-control" value="15" />
+        </div>
+        <button class="btn btn--success">Apply</button>
+      </section>
+
+      <!-- Khu vực Setting Input Parameters (CV, EIS) -->
+      <section class="control-block">
+        <h2 class="control-block__title">Setting Input Parameters</h2>
+        <div class="control-group">
+          <label for="detection-method">Detection method:</label>
+          <select id="detection-method" class="input-control">
+            <option value="cv">CV</option>
+            <option value="eis">EIS</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="start-voltage" id="start-label">Start Voltage (mV):</label>
+          <input type="number" id="start-voltage" class="input-control" value="0" />
+        </div>
+        <div class="control-group">
+          <label for="end-voltage" id="end-label">End Voltage (mV):</label>
+          <input type="number" id="end-voltage" class="input-control" value="500" />
+        </div>
+        <div class="control-group">
+          <label for="step-voltage" id="step-label">Step (mV):</label>
+          <input type="number" id="step-voltage" class="input-control" value="10" />
+        </div>
+        <div class="control-group">
+          <label for="repeat-times" id="repeat-label">Repeat Times:</label>
+          <input type="number" id="repeat-times" class="input-control" value="2" />
+        </div>
+      </section>
+
+  
+
+      <!-- Function Button -->
+      <section class="control-block">
+        <h2 class="control-block__title">Function</h2>
+        <div class="btn-group-vertical">
+          <button class="btn btn--primary">Measure</button>
+          <button class="btn btn--secondary">Clear All</button>
+          <button class="btn btn--warning">Import File</button>
+          <button class="btn btn--info">Export File</button>
+        </div>
+      </section>
+
+    </aside>
+
+    <!-- Cột bên phải: Vùng hiển thị đồ họa & hình vẽ mô tả -->
+    <section class="display-panel">
+      <!-- Hình mô tả schematic (có thể thay bằng ảnh thật) -->
+      <div class="schematic-block">
+        <h2 class="schematic__title">Preconcentration & Detection System</h2>
+        <div class="schematic__image">
+          <!-- Placeholder for image -->
+          <img src="images/schematic.png" alt="System Schematic" />
+        </div>
+      </div>
+
+      <!-- Vùng Graph hiển thị Volt-Amper (CV/EIS) -->
+      <div class="card graph">
+        <h2 class="title">Measurement over Time</h2>
+        <!-- Thẻ canvas dùng để vẽ biểu đồ -->
+        <canvas id="timeChart"></canvas>
+      </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>2025 Electrochemical Potentiostat</p>
+  </footer>
+<body>
+  ...
+  <!-- FOOTER -->
+  <footer class="footer">
+    2025 - UET - Electrochemical System
+  </footer>
+
+<script src="scripts.js"></script>
 </body>
 </html>

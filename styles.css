@@ -13,7 +13,7 @@
   
   /* Header */
   .header {
-    background-color: #0cb5f8;
+    background-color: #53ceff;
     border-bottom: 1px solid #ccc;
     text-align: center;
     padding: 10px;
@@ -123,6 +123,14 @@
     background-color: #0651a1;
   }
   
+  .btn--go {
+    background-color: #1888ff;
+    color: #fff;
+  }
+  .btn--go:hover {
+    background-color: #0651a1;
+  }
+
   .btn--danger {
     background-color: #dc3545;
     color: #fff;
@@ -221,3 +229,21 @@
     color: #666;
   }
   
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.checkbox-group label {
+  cursor: pointer;
+}
+
+.input-group .checkbox-group {
+  margin-bottom: 15px;
+}

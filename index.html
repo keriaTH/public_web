@@ -38,18 +38,58 @@
       </section>
 
       <!-- Khu vực Control Voltage -->
-      <section class="control-block">
-        <h2 class="control-block__title">Control Voltage</h2>
-        <div class="control-group">
-          <label for="voltage1">Voltage 1 (mV):</label>
-          <input type="number" id="voltage1" class="input-control" value="50" />
-        </div>
-        <div class="control-group">
-          <label for="voltage2">Voltage 2 (mV):</label>
-          <input type="number" id="voltage2" class="input-control" value="15" />
-        </div>
-        <button class="btn btn--success">Apply</button>
-      </section>
+<section class="control-block">
+  <h2 class="control-block__title">Control Voltage</h2>
+  <div class="control-group">
+    <label for="voltage1">Voltage 1 (mV):</label>
+    <select id="voltage1" class="input-control">
+      <option value="20">20</option>
+      <option value="25">25</option>
+      <option value="30">30</option>
+      <option value="31">31</option>
+      <option value="32">32</option>
+      <option value="33">33</option>
+      <option value="35">35</option>
+      <option value="39">39</option>
+      <option value="40">40</option>
+      <option value="41">41</option>
+      <option value="46">46</option>
+      <option value="49">49</option>
+      <option value="50">50</option>
+      <option value="51">51</option>
+      <option value="56">56</option>
+      <option value="60">60</option>
+      <option value="65">65</option>
+      <option value="70">70</option>
+      <option value="75">75</option>
+    </select>
+  </div>
+  <div class="control-group">
+    <label for="voltage2">Voltage 2 (mV):</label>
+    <select id="voltage2" class="input-control">
+      <option value="20">20</option>
+      <option value="25">25</option>
+      <option value="30">30</option>
+      <option value="31">31</option>
+      <option value="32">32</option>
+      <option value="33">33</option>
+      <option value="35">35</option>
+      <option value="39">39</option>
+      <option value="40">40</option>
+      <option value="41">41</option>
+      <option value="46">46</option>
+      <option value="49">49</option>
+      <option value="50">50</option>
+      <option value="51">51</option>
+      <option value="56">56</option>
+      <option value="60">60</option>
+      <option value="65">65</option>
+      <option value="70">70</option>
+      <option value="75">75</option>
+    </select>
+  </div>
+  <button class="btn btn--success">Apply</button>
+</section>
 
       <!-- Khu vực Setting Input Parameters (CV, EIS) -->
       <section class="control-block">
@@ -77,15 +117,26 @@
           <label for="repeat-times" id="repeat-label">Repeat Times:</label>
           <input type="number" id="repeat-times" class="input-control" value="2" />
         </div>
+        <div class="input-group">
+      <div class="checkbox-group">
+        <input type="checkbox" id="sweepEnable" name="sweepEnable">
+        <label for="sweepEnable">Sweep enable</label>
+      </div>
+      <div class="checkbox-group">
+        <input type="checkbox" id="logarithmic" name="logarithmic">
+        <label for="logarithmic">Logarithmic</label>
+      </div>
+    </div>
+    
       </section>
 
-  
+
 
       <!-- Function Button -->
       <section class="control-block">
         <h2 class="control-block__title">Function</h2>
         <div class="btn-group-vertical">
-          <button class="btn btn--primary">Measure</button>
+          <button class="btn btn--go">Measure</button>
           <button class="btn btn--secondary">Clear All</button>
           <button class="btn btn--warning">Import File</button>
           <button class="btn btn--info">Export File</button>

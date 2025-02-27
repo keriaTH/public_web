@@ -53,7 +53,7 @@ function getCurrentTimeString() {
 }
 
 // Kết nối WebSocket tới Node-RED
-const socket = new WebSocket('ws://iotbro.hopto.org:1880/ws/potentiostat');
+const socket = new WebSocket('wss://iotbro.hopto.org:1880/ws/potentiostat');
 
 // Khi kết nối thành công
 socket.onopen = function () {
